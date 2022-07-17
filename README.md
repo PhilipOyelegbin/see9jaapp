@@ -2,8 +2,7 @@
 
 ### Mobile Views
 
-
-![1](https://user-images.githubusercontent.com/61213263/179417864-2f549a14-01b6-4338-8e3c-c18271ec749b.jpg)
+![1](https://user-images.githubusercontent.com/61213263/179417977-9f424390-beae-4fb4-a8e8-6a03b772ccb1.png)
 
 
 ![2](https://user-images.githubusercontent.com/61213263/179417872-536711fb-453b-4488-8074-c4f8172fa83a.jpg)
