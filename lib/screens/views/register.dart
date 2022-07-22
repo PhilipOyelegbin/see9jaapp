@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 //import 'package:auth_buttons/auth_buttons.dart';
-// import 'package:google_fonts/google_fonts.dart';
+//import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:see_9ja_/screens/dashboard/dashboard.dart';
-import 'package:see_9ja_/screens/views/register.dart';
 import 'package:see_9ja_/styles/colors.dart';
-import 'package:see_9ja_/utils/router.dart';
 
 // import 'dart:io';
 
 //import 'package:box_ui/box_ui.dart';
 
-class LoginScreen extends StatelessWidget {
+class RegisterScreen extends StatelessWidget {
   //const RegistrationScreen({ Key? key }) : super(key: key);
   //
-  static String id = "Login_screen";
+  static String id = "Register_screen";
 
-  LoginScreen({Key? key}) : super(key: key);
+  RegisterScreen({Key? key}) : super(key: key);
   //
   // final String title;
   // final String subtitle;
@@ -32,7 +29,7 @@ class LoginScreen extends StatelessWidget {
   // final String validationMessage;
   // final bool busy;
 
-  // const LoginScreen({
+  // const RegisterScreen({
   //   Key key,
   //   this.title,
   //   this.subtitle,
@@ -48,6 +45,8 @@ class LoginScreen extends StatelessWidget {
   //   this.showTermsText = false,
   //   this.busy = false,
   // }) : super(key: key);
+
+  final TextEditingController _nameController = TextEditingController();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -72,21 +71,35 @@ class LoginScreen extends StatelessWidget {
               },
             ),
             const Text(
-              "Welcome",
+              "Register",
               style: TextStyle(
                 fontSize: 30.0,
                 fontWeight: FontWeight.w500,
               ),
+              //style: TextStyle(fontSize: 34),
+              // style: GoogleFonts.poppins(
+              //   textStyle: const TextStyle(
+              //     //color: Color(0XFFFCFAFF),
+              //     fontSize: 32.0,
+              //     fontWeight: FontWeight.w500,
+              //   ),
+              // ),
             ),
             const SizedBox(height: 10.0),
+
             const Align(
               alignment: Alignment.centerLeft,
               child: SizedBox(
+                //width: screenWidthPercentage(context, percentage: 0.7),
                 width: 400.0,
+                // child: BoxText.body(
+                //   subtitle!,
+                //   color: Colors.grey.shade400,
+                // ),
                 child: Text(
-                  'Enter your email and password',
+                  'Kindly fill in your details',
                   style: TextStyle(
-                    fontSize: 16.0,
+                    fontSize: 15.0,
                     //fontWeight: FontWeight.w400,
                   ),
                   // style: GoogleFonts.poppins(
@@ -101,9 +114,9 @@ class LoginScreen extends StatelessWidget {
             //verticalSpaceRegular,
             const SizedBox(height: 18.0),
             TextField(
-              controller: _emailController,
+              controller: _nameController,
               decoration: InputDecoration(
-                hintText: 'Email',
+                hintText: 'Name',
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                   borderSide: BorderSide(color: grey),
@@ -122,9 +135,9 @@ class LoginScreen extends StatelessWidget {
             //TextField(),
             const SizedBox(height: 18.0),
             TextField(
-              controller: _passwordController,
+              controller: _emailController,
               decoration: InputDecoration(
-                hintText: 'Password',
+                hintText: 'Email',
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                   borderSide: BorderSide(color: grey),
@@ -150,17 +163,40 @@ class LoginScreen extends StatelessWidget {
             //   ),
             // ),
             // //TextField(),
-            //Form,
+            //form,
             const SizedBox(height: 18.0),
-            Align(
-              alignment: Alignment.centerRight,
-              child: GestureDetector(
-                child: const Text(
-                  'Forgot Password?',
+            TextField(
+              controller: _passwordController,
+              decoration: InputDecoration(
+                hintText: 'Password',
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide(color: grey),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15.0),
+                  borderSide: BorderSide(color: green),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  //borderSide:  BorderSide(
                 ),
               ),
             ),
-            const SizedBox(height: 40.0),
+            const SizedBox(height: 80.0),
+            // Align(
+            //   alignment: Alignment.centerRight,
+            //   child: GestureDetector(
+            //     //onTap: onForgotPassword,
+            //     // child: BoxText.body(
+            //     //   'Forget Password?',
+            //     // ),),
+            //     child: const Text(
+            //       'Forgot Password?',
+            //     ),
+            //   ),
+            // ),
+            //const SizedBox(height: 18.0),
             //verticalSpaceRegular,
             //if (validationMessage != null)
             // BoxText.body(
@@ -173,10 +209,7 @@ class LoginScreen extends StatelessWidget {
             //     ),
             //if (validationMessage != null) verticalSpaceRegular,
             GestureDetector(
-              onTap: (){
-                //PageNavigator(ctx: context).nextPage( page: Dashboard());
-
-              },
+              //onTap: onMainButtonTapped,
               child: Container(
                 width: double.infinity,
                 height: 50,
@@ -192,7 +225,7 @@ class LoginScreen extends StatelessWidget {
                     //       )
                     //     :
                     const Text(
-                  'Login',
+                  'Register',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,
@@ -204,36 +237,41 @@ class LoginScreen extends StatelessWidget {
             //verticalSpaceRegular,
             const SizedBox(height: 18.0),
             //if (onCreateAccountTapped != null)
-            GestureDetector(
-              onTap: () {
-                PageNavigator(ctx: context).nextPage(page: RegisterScreen());
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Don\'t have an account?'),
-                  //horizontalSpaceTiny,
-                  const SizedBox(width: 5.0),
-                  Text(
-                    'Create an account',
-                    style: TextStyle(
-                      //color: kcPrimaryColor,
-                      color: lightGreen,
-                    ),
-                  )
-                ],
-              ),
-            ),
+            // GestureDetector(
+            //   //onTap: onCreateAccountTapped,
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.center,
+            //     children: const [
+            //       Text('Don\'t have an account?'),
+            //       //horizontalSpaceTiny,
+            //       SizedBox(width: 5.0),
+            //       Text(
+            //         'Create an account',
+            //         style: TextStyle(
+            //           //color: kcPrimaryColor,
+            //           color: Color(0xff22A45D),
+            //         ),
+            //       )
+            //     ],
+            //   ),
+            // ),
             //if (showTermsText)
             // BoxText.body(
             //   'By signing up you agree to our terms, conditions and privacy policy.',
             // ),
             // Text(
             //   'By signing up you agree to our terms, conditions and privacy policy.',
-            // ),
-            //verticalSpaceRegular,
-            //const SizedBox(height: 18.0),
-
+            // // ),
+            // //verticalSpaceRegular,
+            // const SizedBox(height: 18.0),
+            // // Align(
+            // //   alignment: Alignment.center,
+            // //   child: Text(
+            // //     'Or',
+            // //   ),
+            // // ),
+            // //verticalSpaceRegular,
+            // const SizedBox(height: 18.0),
             // Row(
             //   children: const [
             //     Divider(
@@ -242,38 +280,25 @@ class LoginScreen extends StatelessWidget {
             //   ],
             // ),
 
-            const SizedBox(height: 10.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Divider(height: 10.0, thickness: 5.0),
-                Text('or'),
-                Divider(height: 3.0, thickness: 5.0),
-              ],
-            ),
-            const SizedBox(height: 18.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset("images/google.svg",
-                    semanticsLabel: 'Google Logo'),
-              ],
-            ),
+            // const SizedBox(height: 8.0),
+            // // Row(
+            // //   mainAxisAlignment: MainAxisAlignment.center,
+            // //   children: const [
+            // //     Divider(height: 3.0, thickness: 5.0),
+            // //     Text('or'),
+            // //     Divider(height: 3.0, thickness: 5.0),
+            // //   ],
+            // // ),
+            // // const SizedBox(height: 18.0),
+            // // // Row(
+            // //   mainAxisAlignment: MainAxisAlignment.center,
+            // //   children: [
+            // //     SvgPicture.asset("images/google.svg",
+            //         semanticsLabel: 'Google Logo'),
+            //   ],
+            // ),
 
-            //verticalSpaceRegular,
-            const SizedBox(height: 18.0),
-            // GoogleAuthButton(
-            //   //onPressed: onSignInWithGoogle ?? () {},
-            //   text: 'CONTINUE WITH GOOGLE',
-            //   style: AuthButtonStyle(
-            //     buttonColor: Color(0xff4285F4),
-            //     iconSize: 24,
-            //     iconBackground: Colors.white,
-            //     buttonType: AuthButtonType.secondary,
-            //     height: 50,
-            //     textStyle: TextStyle(color: Colors.white),
-            //   ),
-            // )
+            //const SizedBox(height: 18.0),
           ],
         ),
       ),
