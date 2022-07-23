@@ -40,10 +40,9 @@ class _SplashState extends State<Splash> {
     );
   }
 
-
-    //Navigate to Intro Screen PageView
+  //Navigate to Intro Screen PageView
   void _navigatetointro() async {
-    await Future.delayed(const Duration(milliseconds: 5000), () {});
+    await Future.delayed(const Duration(milliseconds: 1500), () {});
 
     PageNavigator(ctx: context).nextPageOnly(page: const Intro());
 
@@ -53,7 +52,5 @@ class _SplashState extends State<Splash> {
     //     builder: (context) => const Intro(),
     //   ),
     // );
-
-    
   }
 }

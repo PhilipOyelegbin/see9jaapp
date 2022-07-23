@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:see_9ja_/screens/views/login.dart';
 import 'package:see_9ja_/styles/colors.dart';
-import 'package:see_9ja_/utils/router.dart';
+
 import 'package:see_9ja_/screens/views/pageView.dart';
+import 'package:see_9ja_/utils/router.dart';
 
 class Intro extends StatefulWidget {
   const Intro({Key? key}) : super(key: key);
@@ -47,7 +48,7 @@ class _IntroState extends State<Intro> {
             child: Padding(
               padding: const EdgeInsets.only(top: 10.0, right: 20.0),
               child: Container(
-                height: 6.0,
+                height: 5.0,
                 width: 80.0,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -57,6 +58,7 @@ class _IntroState extends State<Intro> {
                       style: TextStyle(fontSize: 16.0, color: Colors.white),
                       // ),
                     ),
+                    SizedBox(width: 5.0),
                     Icon(Icons.arrow_forward_ios, size: 12.0),
                   ],
                 ),
@@ -164,11 +166,10 @@ class _IntroState extends State<Intro> {
                           //Navigator.pushNamed(context, LoginScreen.id);
                           print(' Login');
                           PageNavigator(ctx: context).nextPage(
-                            page: const LoginScreen(),
+                            page: LoginScreen(),
                           );
                         },
                         child: Container(
-                          // color: Colors.green,
                           height: 44.0,
                           child: Center(
                             child: Text(
