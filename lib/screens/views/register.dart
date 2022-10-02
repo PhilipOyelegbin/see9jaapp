@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 //import 'package:auth_buttons/auth_buttons.dart';
 //import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+//import 'package:flutter_svg/flutter_svg.dart';
 import 'package:see_9ja_/styles/colors.dart';
 
 // import 'dart:io';

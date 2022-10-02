@@ -173,9 +173,8 @@ class LoginScreen extends StatelessWidget {
             //     ),
             //if (validationMessage != null) verticalSpaceRegular,
             GestureDetector(
-              onTap: (){
-                //PageNavigator(ctx: context).nextPage( page: Dashboard());
-
+              onTap: () {
+                PageNavigator(ctx: context).nextPage(page: Dashboard());
               },
               child: Container(
                 width: double.infinity,
@@ -243,25 +242,25 @@ class LoginScreen extends StatelessWidget {
             // ),
 
             const SizedBox(height: 10.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Divider(height: 10.0, thickness: 5.0),
-                Text('or'),
-                Divider(height: 3.0, thickness: 5.0),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: const [
+            //     Divider(height: 10.0, thickness: 5.0),
+            //     Text('or'),
+            //     Divider(height: 3.0, thickness: 5.0),
+            //   ],
+            // ),
             const SizedBox(height: 18.0),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SvgPicture.asset("images/google.svg",
-                    semanticsLabel: 'Google Logo'),
-              ],
-            ),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: [
+            //     // SvgPicture.asset("images/google.svg",
+            //     //     semanticsLabel: 'Google Logo',),
+            //   ],
+            // ),
 
             //verticalSpaceRegular,
-            const SizedBox(height: 18.0),
+
             // GoogleAuthButton(
             //   //onPressed: onSignInWithGoogle ?? () {},
             //   text: 'CONTINUE WITH GOOGLE',

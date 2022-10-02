@@ -11,12 +11,15 @@ class ChildWidget extends StatelessWidget {
   final ScreenNumber number;
   final String description;
   final String subDescription;
+  Image image;
 
   // ignore: use_key_in_widget_constructors
-  const ChildWidget(
-      {required this.number,
-      required this.description,
-      required this.subDescription});
+  ChildWidget({
+    required this.number,
+    required this.description,
+    required this.subDescription,
+    required this.image,
+  });
 
   @override
   Widget build(BuildContext context) {

@@ -3,17 +3,14 @@ import 'package:see_9ja_/screens/views/intro.dart';
 import 'package:see_9ja_/utils/router.dart';
 //import 'package:see_9ja_/views/intro.dart';
 
-//App Splash Screeen displaying App Name and Logo
-class Splash extends StatefulWidget {
-  static String id = "splash_screen";
-
-  const Splash({Key? key}) : super(key: key);
-
+//App Splash Screeen that displays App Name and Logo
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
   @override
-  _SplashState createState() => _SplashState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();

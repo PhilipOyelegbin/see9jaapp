@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:see_9ja_/screens/dashboard/dashboard.dart';
+import 'package:see_9ja_/utils/router.dart';
 //import 'package:see_9ja_/utils/router.dart';
 import 'package:see_9ja_/utils/snack_message.dart';
 import 'package:see_9ja_/widgets/button.dart';
@@ -28,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    /// TODO: implement dispose
     _email.dispose();
     _password.dispose();
     // print('login page disposed');
@@ -64,25 +66,26 @@ class _LoginPageState extends State<LoginPage> {
                     controller: _password,
                   ),
                   customButton(
-                         text: 'Login',
-                        tap: () {
-                          //Manual textfield validator
-                          if (_email.text.isEmpty || _password.text.isEmpty) {
-                            showMessage(
-                                message: 'Please fill all the fields for Login',
-                                context: context);
-                          } else {
-                            // auth.loginUser(
-                            //   email: _email.text.trim(),
-                            //   password: _password.text.trim(),
-                            // );
-                          }
-                        },
-                        context: context,
-                        //status: auth.isLoading,
+                    text: 'Login',
+                    tap: () {
+                      //Manual textfield validator
+                      if (_email.text.isEmpty || _password.text.isEmpty) {
+                        showMessage(
+                            message: 'Please fill all the fields for Login',
+                            context: context);
+                      } else {
+                        PageNavigator(ctx: context).nextPage(page: Dashboard());
+                        // auth.loginUser(
+                        //   email: _email.text.trim(),
+                        //   password: _password.text.trim(),
+                        // );
+                      }
+                    },
+                    context: context,
+                    //status: auth.isLoading,
                   ),
-                   
-                      //)
+
+                  //)
                   //Custom Button
                   // Consumer<AuthenticationProvider>(
                   //   //builder accept a created object of the provider used
@@ -119,9 +122,14 @@ class _LoginPageState extends State<LoginPage> {
                   // ),
                   GestureDetector(
                     onTap: () {
-                      // PageNavigator(ctx: context)
-                      //     .nextPage(page: const RegisterPage());
+                      setState(() {
+                        PageNavigator(ctx: context).nextPage(page: Dashboard());
+                      });
                     },
+                    // onTap: () {
+                    //   PageNavigator(ctx: context)
+                    //       .nextPage(page: const RegisterPage());
+                    // },
                     child: const Text('Register Instead'),
                   )
                 ],

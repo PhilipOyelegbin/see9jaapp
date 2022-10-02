@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:dots_indicator/dots_indicator.dart';
-import 'package:see_9ja_/screens/views/login.dart';
+//import 'package:see_9ja_/screens/views/login.dart';
 import 'package:see_9ja_/styles/colors.dart';
-
 import 'package:see_9ja_/screens/views/pageView.dart';
 import 'package:see_9ja_/utils/router.dart';
+import 'package:see_9ja_/screens/authentication/login.dart';
+//lib\screens\authentication\login.dart
 
+//Intro Screen shows a Page View of different toursit attraction and their brief
 class Intro extends StatefulWidget {
   const Intro({Key? key}) : super(key: key);
   //
@@ -25,7 +27,7 @@ class _IntroState extends State<Intro> {
   //
 
   final PageController _pageController = PageController(initialPage: 0);
-  int currentIndex = 0;
+  int _currentIndex = 0;
 
   //
   bool isLast = false;
@@ -33,6 +35,8 @@ class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //backgroundColor: Colors.transparent,
+      backgroundColor: const Color(0XFFFCFAFF),
       appBar: AppBar(
         actions: [
           GestureDetector(
@@ -42,19 +46,19 @@ class _IntroState extends State<Intro> {
                 duration: const Duration(milliseconds: 200),
                 curve: Curves.linear,
               );
-              _pageController.jumpToPage(currentIndex = 3);
+              _pageController.jumpToPage(_currentIndex = 3);
               print('Skip');
             },
             child: Padding(
               padding: const EdgeInsets.only(top: 10.0, right: 20.0),
               child: Container(
-                height: 5.0,
+                //height: 3.0,
                 width: 80.0,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const [
                     Text(
-                      "Skip",
+                      "skip",
                       style: TextStyle(fontSize: 16.0, color: Colors.white),
                       // ),
                     ),
@@ -73,38 +77,43 @@ class _IntroState extends State<Intro> {
         backgroundColor: Colors.transparent,
         elevation: 0.0,
       ),
-      backgroundColor: const Color(0XFFFCFAFF),
+
       body: Stack(
         children: [
-          const Scaffold(
-            backgroundColor: Colors.transparent,
-          ),
+          // Scaffold(
+          //   backgroundColor: Colors.transparent,
+          // ),
           PageView(
             controller: _pageController,
             onPageChanged: (page) {
               setState(() {
-                currentIndex = page;
+                _currentIndex = page;
               });
             },
-            children: const [
+            children: [
               ChildWidget(
+                  // image: Image(image: image)
+                  image: Image.asset('images/image1.png'),
                   number: ScreenNumber.first,
                   description: "Explore Nigeria With Us",
                   subDescription:
                       "Check out different attraction centres in \n Nigeria and decide where you’ll like to visit"),
               ChildWidget(
+                image: Image.asset('images/image2.png'),
                 number: ScreenNumber.second,
                 description: "Discover Beautiful Places",
                 subDescription:
                     "Go sight-seeing and discover different \n natural and man-made attraction sites",
               ),
               ChildWidget(
+                image: Image.asset('images/image3.png'),
                 number: ScreenNumber.third,
                 description: "Google Maps Coordination ",
                 subDescription:
                     "Get clear and concise directions with the \n Google Maps Coordination",
               ),
               ChildWidget(
+                image: Image.asset('images/image4.png'),
                 number: ScreenNumber.fourth,
                 description: "Connect With Other Tourists",
                 subDescription:
@@ -125,7 +134,7 @@ class _IntroState extends State<Intro> {
                       activeColor: lightGreen,
                     ),
                     dotsCount: 4,
-                    position: currentIndex.toDouble(),
+                    position: _currentIndex.toDouble(),
                   ),
                 ),
                 Padding(
@@ -166,19 +175,19 @@ class _IntroState extends State<Intro> {
                           //Navigator.pushNamed(context, LoginScreen.id);
                           print(' Login');
                           PageNavigator(ctx: context).nextPage(
-                            page: LoginScreen(),
+                            page: const LoginPage(),
                           );
                         },
                         child: Container(
                           height: 44.0,
                           child: Center(
                             child: Text(
-                              currentIndex == 3 ? "Get Started" : "Next",
+                              _currentIndex == 3 ? "Get Started" : "Next",
                               style: TextStyle(color: white, fontSize: 18),
                             ),
                           ),
                           decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: green,
                             //color: status == false ? primaryColor : grey,
                             borderRadius: BorderRadius.circular(8),
                           ),

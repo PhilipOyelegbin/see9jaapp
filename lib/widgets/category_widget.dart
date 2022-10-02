@@ -5,12 +5,15 @@ class CategoryWidget extends StatefulWidget {
   final String? category;
   final Color? color;
   final Function? onPressed;
+  final String? image;
+  // final String?  title;
 
   const CategoryWidget({
     Key? key,
     this.category,
     this.color,
     this.onPressed,
+    this.image,
   });
 
   @override
@@ -22,28 +25,22 @@ class _CategoryWidgetState extends State<CategoryWidget> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {},
-      child: Container(
-        margin: const EdgeInsets.only(right: 20),
-        padding: const EdgeInsets.all(10),
-        decoration: BoxDecoration(
-          color: widget.color,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Container(
-          padding: const EdgeInsets.all(10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.black12,
-                offset: Offset(0, 10),
-                blurRadius: 10,
-              ),
-            ],
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(right: 20),
+            height: 100,
+            width: 100,
+            // padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              //image: Image(image: AssetImage(image)),
+              color: widget.color,
+              borderRadius: BorderRadius.circular(10),
+            ),
           ),
-          child: const FlutterLogo(size: 40),
-        ),
+          Text("${widget.category}")
+        ],
       ),
     );
   }
