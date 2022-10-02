@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 //import 'package:auth_buttons/auth_buttons.dart';
 //import 'package:google_fonts/google_fonts.dart';
@@ -305,3 +306,4 @@ class RegisterScreen extends StatelessWidget {
     );
   }
 }
+

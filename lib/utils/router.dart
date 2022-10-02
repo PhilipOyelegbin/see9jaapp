@@ -1,3 +1,4 @@
+
 // import 'package:flutter/material.dart';
 // import 'package:flutter/cupertino.dart';
 
@@ -52,4 +53,5 @@ class PageNavigator {
         ctx, MaterialPageRoute(builder: (context) => page!), (route) => false);
   }
 }
+
 
